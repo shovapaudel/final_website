@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Shova Paudel | Forestry Researcher</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #000000;
+            --bg-secondary: #0a0a0a;
+            --bg-card: #0a0a0a;
+            --bg-hover: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #e0e0e0;
+            --text-muted: #aaaaaa;
+            --text-dark: #c0c0c0;
+            --border-color: #2a2a2a;
+            --accent-color: #2ecc71;
+            --accent-hover: #27ae60;
+            --card-border: #1a1a1a;
+            --input-bg: #1a1a1a;
+        }
+
+        body.light {
+            --bg-primary: #f5f5f5;
+            --bg-secondary: #ffffff;
+            --bg-card: #ffffff;
+            --bg-hover: #e8e8e8;
+            --text-primary: #1a1a1a;
+            --text-secondary: #333333;
+            --text-muted: #666666;
+            --text-dark: #444444;
+            --border-color: #dddddd;
+            --accent-color: #2ecc71;
+            --accent-hover: #27ae60;
+            --card-border: #e0e0e0;
+            --input-bg: #f0f0f0;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-secondary);
+            transition: background 0.3s ease, color 0.3s ease;
+            line-height: 1.6;
+        }
+
+        .container {
+            display: flex;
+            max-width: 1400px;
+            margin: 0 auto;
+            background: var(--bg-primary);
+            min-height: 100vh;
+        }
+
+        /* LEFT SIDEBAR */
+        .sidebar {
+            width: 280px;
+            background: var(--bg-secondary);
+            padding: 40px 25px;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+            border-right: 1px solid var(--border-color);
+            transition: background 0.3s ease;
+        }
+
+        .profile-img {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+            .profile-img img {
+                width: 150px;
+                height: 150px;
+                border-radius: 50%;
+                border: 3px solid var(--accent-color);
+                object-fit: cover;
+            }
+
+        .name {
+            text-align: center;
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--text-primary);
+        }
+
+        .email {
+            text-align: center;
+            font-size: 14px;
+            margin-bottom: 15px;
+            color: var(--text-muted);
+            word-break: break-all;
+        }
+
+            .email i {
+                margin-right: 6px;
+                color: var(--accent-color);
+            }
+
+        .cv-btn {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+            .cv-btn a {
+                background: var(--bg-hover);
+                color: var(--text-primary);
+                padding: 10px 22px;
+                border-radius: 30px;
+                text-decoration: none;
+                font-weight: 600;
+                display: inline-block;
+                transition: 0.3s;
+                border: 1px solid var(--accent-color);
+                font-size: 14px;
+            }
+
+                .cv-btn a:hover {
+                    background: var(--accent-color);
+                    color: #000000;
+                    transform: scale(1.05);
+                }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+            .social-links a {
+                color: var(--text-muted);
+                font-size: 22px;
+                transition: 0.3s;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 42px;
+                height: 42px;
+                border-radius: 50%;
+                background: var(--bg-hover);
+                text-decoration: none;
+            }
+
+                .social-links a:hover {
+                    color: #ffffff;
+                    background: var(--accent-color);
+                    transform: translateY(-3px);
+                }
+
+        .theme-toggle {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .theme-btn {
+            background: var(--bg-hover);
+            color: var(--accent-color);
+            border: 1px solid var(--accent-color);
+            padding: 10px 18px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+            .theme-btn:hover {
+                background: var(--accent-color);
+                color: #000000;
+            }
+
+        .nav-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .nav-item {
+            padding: 14px 18px;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: 0.3s;
+            font-size: 17px;
+            font-weight: 500;
+            color: var(--text-muted);
+        }
+
+            .nav-item:hover {
+                background: var(--bg-hover);
+                color: var(--text-primary);
+            }
+
+            .nav-item.active {
+                background: var(--bg-hover);
+                color: var(--accent-color);
+                font-weight: 600;
+                border-left: 3px solid var(--accent-color);
+            }
+
+            .nav-item i {
+                margin-right: 12px;
+                width: 22px;
+            }
+
+        .copyright {
+            margin-top: 50px;
+            font-size: 12px;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+            color: var(--text-muted);
+        }
+
+            .copyright a {
+                color: var(--accent-color);
+                text-decoration: none;
+            }
+
+        .main-content {
+            flex: 1;
+            padding: 55px;
+            overflow-y: auto;
+            background: var(--bg-primary);
+        }
+
+        .page {
+            display: none;
+        }
+
+            .page.active {
+                display: block;
+                animation: fadeIn 0.5s ease;
+            }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* HOME PAGE */
+        .hello-text {
+            font-size: 15px;
+            color: var(--accent-color);
+            margin-bottom: 8px;
+            letter-spacing: 1.5px;
+            font-weight: 500;
+        }
+
+        .hero-name {
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 18px;
+            letter-spacing: -0.5px;
+        }
+
+        .welcome-text {
+            font-size: 18px;
+            line-height: 1.7;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+        }
+
+        .forestry-badge {
+            display: inline-block;
+            background: var(--bg-hover);
+            color: var(--accent-color);
+            padding: 8px 22px;
+            border-radius: 30px;
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 35px;
+            border: 1px solid var(--accent-color);
+        }
+
+        .section-title {
+            font-size: 28px;
+            color: var(--text-primary);
+            margin: 35px 0 20px 0;
+            font-weight: 700;
+        }
+
+        .info-box {
+            background: var(--bg-card);
+            padding: 24px;
+            border-radius: 12px;
+            line-height: 1.8;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            border-left: 4px solid var(--accent-color);
+            font-size: 16px;
+        }
+
+        .technical-skills-desc {
+            color: var(--text-muted);
+            margin-bottom: 25px;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+            gap: 18px;
+            margin-top: 15px;
+        }
+
+        .skill-card {
+            background: var(--bg-card);
+            padding: 14px 18px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            transition: 0.3s;
+            border: 1px solid var(--card-border);
+        }
+
+            .skill-card:hover {
+                border-color: var(--accent-color);
+                transform: translateX(5px);
+            }
+
+            .skill-card i {
+                font-size: 20px;
+                color: var(--accent-color);
+                width: 30px;
+            }
+
+            .skill-card span {
+                color: var(--text-primary);
+                font-size: 15px;
+                font-weight: 500;
+            }
+
+        /* RESEARCH PAGE */
+        .research-intro {
+            background: var(--bg-card);
+            padding: 25px;
+            border-radius: 14px;
+            margin-bottom: 35px;
+            border-left: 4px solid var(--accent-color);
+        }
+
+            .research-intro p {
+                font-size: 16px;
+                line-height: 1.7;
+            }
+
+        .research-paper {
+            background: var(--bg-card);
+            border-radius: 14px;
+            padding: 28px;
+            margin-bottom: 40px;
+            border: 1px solid var(--card-border);
+        }
+
+        .paper-year {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--accent-color);
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+        }
+
+        .paper-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .paper-author {
+            font-size: 16px;
+            color: var(--text-muted);
+            margin-bottom: 18px;
+        }
+
+        .paper-journal {
+            display: inline-block;
+            background: var(--bg-hover);
+            color: var(--accent-color);
+            padding: 6px 16px;
+            border-radius: 25px;
+            font-size: 13px;
+            font-weight: 500;
+            margin-bottom: 25px;
+        }
+
+        .paper-links {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .paper-link {
+            background: var(--bg-hover);
+            color: var(--accent-color);
+            padding: 10px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 600;
+            transition: 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid var(--card-border);
+            cursor: pointer;
+        }
+
+            .paper-link:hover {
+                background: var(--accent-color);
+                color: #000000;
+                border-color: var(--accent-color);
+            }
+
+        .abstract-content {
+            display: none;
+            margin-top: 25px;
+            padding: 20px;
+            background: var(--bg-hover);
+            border-radius: 12px;
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--text-dark);
+            border-left: 3px solid var(--accent-color);
+        }
+
+        .training-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+
+        .training-card {
+            background: var(--bg-card);
+            border-radius: 14px;
+            padding: 22px;
+            border: 1px solid var(--card-border);
+            transition: 0.3s;
+        }
+
+            .training-card:hover {
+                transform: translateY(-4px);
+                border-color: var(--accent-color);
+            }
+
+            .training-card i {
+                font-size: 32px;
+                color: var(--accent-color);
+                margin-bottom: 15px;
+            }
+
+            .training-card h4 {
+                font-size: 18px;
+                color: var(--text-primary);
+                margin-bottom: 10px;
+                font-weight: 600;
+            }
+
+            .training-card p {
+                font-size: 14px;
+                color: var(--text-muted);
+                line-height: 1.6;
+            }
+
+        .experience-list {
+            background: var(--bg-card);
+            border-radius: 14px;
+            padding: 25px;
+            margin-top: 25px;
+        }
+
+            .experience-list h3 {
+                color: var(--accent-color);
+                font-size: 20px;
+                margin-bottom: 20px;
+                font-weight: 600;
+            }
+
+        .experience-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            margin-bottom: 18px;
+            padding: 10px;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+
+            .experience-item:hover {
+                background: var(--bg-hover);
+            }
+
+            .experience-item i {
+                color: var(--accent-color);
+                font-size: 18px;
+                margin-top: 2px;
+            }
+
+            .experience-item span {
+                font-size: 15px;
+                color: var(--text-dark);
+                line-height: 1.6;
+            }
+
+        /* RESUME PAGE */
+        .resume-container {
+            max-width: 100%;
+        }
+
+        .education-header {
+            margin-bottom: 35px;
+        }
+
+            .education-header h2 {
+                font-size: 36px;
+                color: var(--text-primary);
+                border-left: 4px solid var(--accent-color);
+                padding-left: 18px;
+            }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 35px;
+            margin-bottom: 40px;
+            border-left: 2px solid var(--accent-color);
+        }
+
+        .timeline-year {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--accent-color);
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        .timeline-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 10px;
+        }
+
+        .timeline-subtitle {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+        }
+
+        .timeline-location {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .timeline-description {
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--text-dark);
+            margin-top: 10px;
+        }
+
+        .courses-list {
+            margin-top: 12px;
+            padding-left: 25px;
+        }
+
+            .courses-list li {
+                font-size: 14px;
+                color: var(--text-muted);
+                margin-bottom: 6px;
+            }
+
+        .scholarship-badge {
+            display: inline-block;
+            background: var(--bg-hover);
+            color: var(--accent-color);
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            margin-top: 12px;
+            border: 1px solid var(--accent-color);
+        }
+
+        /* CONTACT PAGE */
+        .contact-header {
+            margin-bottom: 30px;
+        }
+
+            .contact-header h2 {
+                font-size: 36px;
+                color: var(--text-primary);
+                border-left: 4px solid var(--accent-color);
+                padding-left: 18px;
+            }
+
+        .contact-intro {
+            font-size: 18px;
+            line-height: 1.7;
+            color: var(--text-muted);
+            background: var(--bg-card);
+            padding: 25px;
+            border-radius: 14px;
+            border-left: 4px solid var(--accent-color);
+            margin-bottom: 35px;
+        }
+
+        .contact-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 35px;
+        }
+
+        .contact-info {
+            flex: 1;
+            min-width: 250px;
+            background: var(--bg-card);
+            border-radius: 14px;
+            padding: 28px;
+            border: 1px solid var(--card-border);
+        }
+
+        .contact-info-item {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin-bottom: 28px;
+            padding: 12px;
+            border-radius: 12px;
+            transition: 0.3s;
+        }
+
+            .contact-info-item:hover {
+                background: var(--bg-hover);
+            }
+
+            .contact-info-item i {
+                width: 45px;
+                height: 45px;
+                background: var(--bg-hover);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+                font-size: 22px;
+                color: var(--accent-color);
+            }
+
+            .contact-info-item h3 {
+                font-size: 18px;
+                color: var(--text-primary);
+                margin-bottom: 5px;
+                font-weight: 600;
+            }
+
+            .contact-info-item p {
+                font-size: 15px;
+                color: var(--text-muted);
+            }
+
+        .contact-form {
+            flex: 1.5;
+            min-width: 300px;
+            background: var(--bg-card);
+            border-radius: 14px;
+            padding: 28px;
+            border: 1px solid var(--card-border);
+        }
+
+            .contact-form h3 {
+                font-size: 22px;
+                color: var(--text-primary);
+                margin-bottom: 20px;
+                font-weight: 600;
+            }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+            .form-group input, .form-group textarea {
+                width: 100%;
+                padding: 14px 16px;
+                background: var(--input-bg);
+                border: 1px solid var(--border-color);
+                border-radius: 10px;
+                font-size: 15px;
+                font-family: 'Inter', sans-serif;
+                color: var(--text-primary);
+                transition: 0.3s;
+            }
+
+                .form-group input:focus, .form-group textarea:focus {
+                    outline: none;
+                    border-color: var(--accent-color);
+                    box-shadow: 0 0 0 2px rgba(46, 204, 113, 0.2);
+                }
+
+        .submit-btn {
+            background: var(--accent-color);
+            color: #000000;
+            padding: 14px 32px;
+            border: none;
+            border-radius: 40px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+            .submit-btn:hover {
+                background: var(--accent-hover);
+                transform: scale(1.02);
+            }
+
+        .form-message {
+            margin-top: 15px;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 14px;
+            display: none;
+        }
+
+            .form-message.success {
+                background: rgba(46, 204, 113, 0.2);
+                color: var(--accent-color);
+                border: 1px solid var(--accent-color);
+                display: block;
+            }
+
+            .form-message.error {
+                background: rgba(231, 76, 60, 0.2);
+                color: #e74c3c;
+                border: 1px solid #e74c3c;
+                display: block;
+            }
+
+        /* PORTFOLIO PAGE */
+        .portfolio-placeholder {
+            text-align: center;
+            padding: 60px 20px;
+            background: var(--bg-card);
+            border-radius: 14px;
+            border: 1px solid var(--card-border);
+        }
+
+            .portfolio-placeholder i {
+                font-size: 60px;
+                color: var(--accent-color);
+                margin-bottom: 20px;
+            }
+
+            .portfolio-placeholder p {
+                font-size: 16px;
+                color: var(--text-muted);
+            }
+
+        /* MOBILE */
+        .hamburger {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 1001;
+            background: var(--accent-color);
+            color: #000000;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 26px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 998;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                position: fixed;
+                left: -280px;
+                top: 0;
+                width: 280px;
+                height: 100%;
+                z-index: 999;
+                transition: left 0.3s ease;
+            }
+
+                .sidebar.open {
+                    left: 0;
+                }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .overlay.active {
+                display: block;
+            }
+
+            .main-content {
+                padding: 25px 18px 80px 18px;
+            }
+
+            .hero-name {
+                font-size: 32px;
+            }
+
+            .hello-text {
+                font-size: 13px;
+            }
+
+            .welcome-text {
+                font-size: 15px;
+            }
+
+            .section-title {
+                font-size: 22px;
+            }
+
+            .info-box {
+                font-size: 14px;
+                padding: 18px;
+            }
+
+            .contact-header h2 {
+                font-size: 28px;
+            }
+
+            .contact-intro {
+                font-size: 15px;
+            }
+
+            .contact-wrapper {
+                flex-direction: column;
+            }
+
+            .paper-title {
+                font-size: 20px;
+            }
+
+            .timeline-title {
+                font-size: 18px;
+            }
+
+            .education-header h2 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hamburger" id="hamburgerBtn">
+        <i class="fas fa-bars"></i>
+    </div>
+    <div class="overlay" id="overlay"></div>
+
+    <div class="container">
+        <div class="sidebar" id="sidebar">
+            <div class="profile-img">
+                <img src="https://ui-avatars.com/api/?background=2ecc71&color=000000&rounded=true&size=150&bold=true&name=Shova+P" alt="Shova Paudel">
+            </div>
+            <div class="name">Shova Paudel</div>
+
+            <div class="cv-btn"><a href="#" id="downloadCV">📄 Download CV</a></div>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+            <div class="theme-toggle">
+                <button class="theme-btn" id="themeToggle"><i class="fas fa-moon"></i> Dark/Light</button>
+            </div>
+            <div class="nav-menu">
+                <div class="nav-item active" data-page="home"><i class="fas fa-home"></i> Home</div>
+                <div class="nav-item" data-page="resume"><i class="fas fa-file-alt"></i> Resume</div>
+                <div class="nav-item" data-page="research"><i class="fas fa-flask"></i> Research</div>
+                <div class="nav-item" data-page="portfolio"><i class="fas fa-images"></i> Portfolio</div>
+                <div class="nav-item" data-page="contact"><i class="fas fa-envelope"></i> Contact</div>
+            </div>
+            <div class="copyright">© 2025 Shova Paudel.<br>This work is licensed under<br><a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></div>
+        </div>
+
+        <div class="main-content">
+            <!-- HOME PAGE -->
+            <div id="home" class="page active">
+                <div class="hello-text">Hello, i'm</div>
+                <div class="hero-name">Shova Paudel</div>
+                <div class="welcome-text">Welcome to my personal website. Here, I share my experience, skills, and a collection of my projects and research work.</div>
+                <div class="forestry-badge">🌿 Forestry Graduate</div>
+
+                <div class="section-title">About Me</div>
+                <div class="info-box">I am Shova Paudel, recently graduate from the IOF, Hetauda with honors in 2026. My hobbies include reading books, watching TV series, drawing, trekking, travelling etc.</div>
+
+                <div class="section-title">Research Interest</div>
+                <div class="info-box">I am interested in ecology, forest management, wildlife conservation etc. I enjoy learning how nature works and finding ways to protect it. Recently, I developed a strong enthusiasm for academic research and have been dedicatedly focusing on it. My studies primarily focus on utilization of geospatial tools and machine learning to understand different phenomenon around us.</div>
+
+                <div class="section-title">Skills & Tools</div>
+                <div class="technical-skills-desc">Expertise in geospatial analysis, data science, and office productivity tools</div>
+
+                <div class="skills-grid">
+                    <div class="skill-card"><i class="fas fa-map"></i><span>ArcGIS</span></div>
+                    <div class="skill-card"><i class="fas fa-globe"></i><span>QGIS</span></div>
+                    <div class="skill-card"><i class="fab fa-r-project"></i><span>R Programming</span></div>
+                    <div class="skill-card"><i class="fas fa-file-word"></i><span>Microsoft Word</span></div>
+                    <div class="skill-card"><i class="fas fa-file-excel"></i><span>Microsoft Excel</span></div>
+                    <div class="skill-card"><i class="fas fa-chart-line"></i><span>Microsoft PowerPoint</span></div>
+                    <div class="skill-card"><i class="fab fa-google"></i><span>Google Earth Engine</span></div>
+                    <div class="skill-card"><i class="fas fa-satellite-dish"></i><span>GPS Technology</span></div>
+                    <div class="skill-card"><i class="fas fa-chart-bar"></i><span>Data Analysis</span></div>
+                </div>
+            </div>
+
+            <!-- RESUME PAGE -->
+            <div id="resume" class="page">
+                <div class="education-header"><h2>Education</h2></div>
+                <div class="resume-container">
+                    <div class="timeline-item">
+                        <div class="timeline-year">2023 – 2026</div>
+                        <div class="timeline-title">Bachelor of Science in Forestry</div>
+                        <div class="timeline-subtitle">Tribhuvan University, Institute of Forestry (TU-IOF)</div>
+                        <div class="timeline-location"><i class="fas fa-map-marker-alt"></i> Hetauda, Nepal</div>
+                        <div class="timeline-description">Major Courses:<ul class="courses-list"><li>Forest Ecology</li><li>Silviculture</li><li>Wildlife Management</li><li>GIS Applications in Forestry</li><li>Watershed Management</li><li>Sustainable Resource Management</li></ul></div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2021 – 2023</div>
+                        <div class="timeline-title">Higher Secondary (+2)</div>
+                        <div class="timeline-subtitle">Aroma College of Applied Science and Management</div>
+                        <div class="timeline-location"><i class="fas fa-map-marker-alt"></i> Bharatpur-10, Chitwan, Nepal</div>
+                        <div class="timeline-description">Specialized in Science (Biology, Chemistry, Physics and Environmental Studies).</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2021</div>
+                        <div class="timeline-title">Secondary Education Examination (SEE)</div>
+                        <div class="timeline-subtitle">Shree Nepal Rastriya Ganesh Ma. Vi.</div>
+                        <div class="timeline-location"><i class="fas fa-map-marker-alt"></i> Bardiya, Nepal</div>
+                        <div class="timeline-description">A national-level board exam in Nepal taken by students after Grade 10.</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2022</div>
+                        <div class="timeline-title">Grants and Scholarships</div>
+                        <div class="timeline-subtitle">Tribhuvan University - Institute of Forestry (TU-IOF)</div>
+                        <div class="timeline-description">Received the scholarship on a merit basis after a competitive entrance exam.<div class="scholarship-badge">🏆 Merit Scholarship</div></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RESEARCH PAGE -->
+            <div id="research" class="page">
+                <div class="research-intro">
+                    <p style="margin-bottom: 12px;">In my undergraduate thesis, I studied the spread of <strong>Parthenium hysterophorus</strong> in Nepal using modeling techniques under present and future climate conditions.</p>
+                    <p>In the future, I intend to deepen my research in climate change impacts, ecological modeling, and conservation planning.</p>
+                </div>
+
+                <div class="research-paper">
+                    <div class="paper-year">📄 2025</div>
+                    <div class="paper-title">Habitat Suitability Modeling of <em>Parthenium hysterophorus L.</em> under Current and Future Climatic Scenarios in Nepal</div>
+                    <div class="paper-author">Paudel, S.</div>
+                    <div class="paper-journal">Undergraduate Thesis / Pre-print</div>
+
+                    <div class="paper-links">
+                        <div class="paper-link" id="abstractBtn"><i class="fas fa-scroll"></i> Abstract</div>
+                        <div class="paper-link" id="fulltextBtn"><i class="fas fa-file-alt"></i> Full Text</div>
+                        <div class="paper-link" id="codeBtn"><i class="fab fa-github"></i> Code</div>
+                    </div>
+
+                    <div id="abstractContent" class="abstract-content">
+                        <strong>📖 Abstract:</strong><br><br>
+                        Invasive alien species are among the major drivers of biodiversity decline, alongside land-use change and pollution. They pose a significant threat to biodiversity, particularly under changing climatic conditions. This study examines the distribution patterns of <em>Parthenium hysterophorus L.</em> in Nepal under current and future climate scenarios (medium carbon emissions (SSP245) and high carbon emissions (SSP585)) up to the year 2100, using ensemble species distribution modeling.<br><br>
+                        Species occurrence data were obtained from the Global Biodiversity Information Facility (GBIF), while 19 bioclimatic variables and two topographical variables were downloaded from WorldClim. Binary logistic regression was performed using five machine learning models and two statistical models, all meeting performance thresholds of area under the curve (AUC) > 0.85 and true skill statistic (TSS) > 0.6. Model outputs were ensembled using a weighted average approach based on TSS to generate final suitability maps. Among the predictors, mean diurnal range was the most influential, followed by the minimum temperature of the coldest month and precipitation of the coldest month.<br><br>
+                        Under current climatic conditions, <em>P. hysterophorus</em> occupies 22.54% of Nepal's total area. The highest suitability is observed in the Terai (81.15%), followed by the Siwalik (50.23%), Middle Mountain (16.75%), and High Mountain (1.15%) regions, while no suitable area is found in the High Himalaya. By years 2080–2100, under the high emission scenario, the suitable area is projected to expand to 42.39% of Nepal, compared to 37.19% under the medium emission scenario. A notable shift of species toward northern regions was observed. To conclude, climate change is likely to exacerbate the invasion of <em>P. hysterophorus</em> in Nepal. The invasion shift towards the northern region can pose a significant threat to abandoned agricultural lands in the Middle Mountains. Continuous monitoring and management efforts are therefore essential to prevent its further spread into new habitats.
+                    </div>
+                </div>
+
+                <div class="section-title" style="margin-top: 10px;">Training & Experience</div>
+
+                <div class="training-grid">
+                    <div class="training-card">
+                        <i class="fas fa-chalkboard-user"></i>
+                        <h4>Gender in Academia</h4>
+                        <p>Training organized by RECOFTC-Nepal in collaboration with Institute of Forestry Hetauda and Female Foresters Nepal.</p>
+                    </div>
+                    <div class="training-card">
+                        <i class="fas fa-tree"></i>
+                        <h4>Fieldwork & Data Collection</h4>
+                        <p>Hands-on experience in field data collection, tree tagging, and environmental documentation under real field conditions.</p>
+                    </div>
+                    <div class="training-card">
+                        <i class="fas fa-clipboard-list"></i>
+                        <h4>Forest Operational Plans</h4>
+                        <p>Assisted in the preparation of forest operational plans and learned their importance in sustainable forest management.</p>
+                    </div>
+                </div>
+
+                <div class="experience-list">
+                    <h3><i class="fas fa-hiking"></i> Field Experience Highlights</h3>
+                    <div class="experience-item"><i class="fas fa-check-circle"></i><span>Participated in fieldwork involving data collection and tree tagging, gaining hands-on experience in real field conditions</span></div>
+                    <div class="experience-item"><i class="fas fa-check-circle"></i><span>Developed basic skills in observing, recording, and documenting environmental data</span></div>
+                    <div class="experience-item"><i class="fas fa-check-circle"></i><span>Assisted in the preparation of forest operational plans and learned their importance in management</span></div>
+                    <div class="experience-item"><i class="fas fa-check-circle"></i><span>Gained practical understanding of forest management practices and field techniques</span></div>
+                    <div class="experience-item"><i class="fas fa-check-circle"></i><span>Worked collaboratively with a team, improving coordination and communication during field activities</span></div>
+                </div>
+            </div>
+
+            <!-- PORTFOLIO PAGE -->
+            <div id="portfolio" class="page">
+                <div class="portfolio-placeholder">
+                    <i class="fas fa-images"></i>
+                    <h3 style="color: var(--text-primary); margin-bottom: 10px;">Portfolio Coming Soon</h3>
+                    <p>Research maps, field photos, and project showcases will be added here.</p>
+                </div>
+            </div>
+
+            <!-- CONTACT PAGE -->
+            <div id="contact" class="page">
+                <div class="contact-header">
+                    <h2>Let's Connect</h2>
+                </div>
+
+                <div class="contact-intro">
+                    <i class="fas fa-leaf" style="color: var(--accent-color); margin-right: 10px;"></i>
+                    I'm always interested in new opportunities and collaborations related to forestry and environmental conservation.
+                </div>
+
+                <div class="contact-wrapper">
+                    <div class="contact-info">
+                        <div class="contact-info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div><h3>Location</h3><p>Geruwa-6, Bardiya, Nepal</p></div>
+                        </div>
+                        <div class="contact-info-item">
+                            <i class="fas fa-envelope"></i>
+                            <div><h3>Email</h3><p>shovapoudel12345@gmail.com</p></div>
+                        </div>
+                        <div class="contact-info-item">
+                            <i class="fas fa-share-alt"></i>
+                            <div><h3>Social Media</h3><p>Connect with me on LinkedIn, Twitter, Instagram</p></div>
+                        </div>
+                    </div>
+
+                    <div class="contact-form">
+                        <h3>Send Me a Message</h3>
+                        <form id="contactForm">
+                            <div class="form-group"><input type="text" id="formName" placeholder="Your Name" required></div>
+                            <div class="form-group"><input type="email" id="formEmail" placeholder="Your Email" required></div>
+                            <div class="form-group"><input type="text" id="formSubject" placeholder="Subject"></div>
+                            <div class="form-group"><textarea id="formMessage" rows="4" placeholder="Message" required></textarea></div>
+                            <button type="submit" class="submit-btn"><i class="fas fa-paper-plane"></i> Send Message</button>
+                            <div id="formStatus" class="form-message"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        function setTheme(theme) {
+            if (theme === 'light') { document.body.classList.add('light'); localStorage.setItem('theme', 'light'); }
+            else { document.body.classList.remove('light'); localStorage.setItem('theme', 'dark'); }
+        }
+        if (localStorage.getItem('theme') === 'light') document.body.classList.add('light');
+        themeToggle.addEventListener('click', () => { document.body.classList.contains('light') ? setTheme('dark') : setTheme('light'); });
+
+        // Navigation
+        const navItems = document.querySelectorAll('.nav-item');
+        const pages = document.querySelectorAll('.page');
+        const sidebar = document.getElementById('sidebar');
+        const hamburger = document.getElementById('hamburgerBtn');
+        const overlay = document.getElementById('overlay');
+
+        function closeSidebar() { sidebar.classList.remove('open'); overlay.classList.remove('active'); }
+        function openSidebar() { sidebar.classList.add('open'); overlay.classList.add('active'); }
+
+        if (hamburger) hamburger.addEventListener('click', () => { sidebar.classList.contains('open') ? closeSidebar() : openSidebar(); });
+        if (overlay) overlay.addEventListener('click', closeSidebar);
+
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const pageId = item.getAttribute('data-page');
+                navItems.forEach(nav => nav.classList.remove('active'));
+                item.classList.add('active');
+                pages.forEach(page => page.classList.remove('active'));
+                document.getElementById(pageId).classList.add('active');
+                if (window.innerWidth <= 768) closeSidebar();
+            });
+        });
+
+        // Abstract Toggle
+        const abstractBtn = document.getElementById('abstractBtn');
+        const abstractContent = document.getElementById('abstractContent');
+        if (abstractBtn) {
+            abstractBtn.addEventListener('click', () => {
+                if (abstractContent.style.display === 'none' || abstractContent.style.display === '') {
+                    abstractContent.style.display = 'block';
+                    abstractBtn.innerHTML = '<i class="fas fa-scroll"></i> Hide Abstract';
+                } else {
+                    abstractContent.style.display = 'none';
+                    abstractBtn.innerHTML = '<i class="fas fa-scroll"></i> Abstract';
+                }
+            });
+        }
+
+        // Research Links
+        document.getElementById('fulltextBtn')?.addEventListener('click', () => alert('Full text will be available soon. Please contact me for access.'));
+        document.getElementById('codeBtn')?.addEventListener('click', () => alert('Code repository will be shared upon request.'));
+        document.getElementById('downloadCV')?.addEventListener('click', (e) => { e.preventDefault(); alert('CV will be available for download soon!'); });
+
+        // Contact Form Handler
+        const contactForm = document.getElementById('contactForm');
+        const formStatus = document.getElementById('formStatus');
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const name = document.getElementById('formName').value.trim();
+                const email = document.getElementById('formEmail').value.trim();
+                const message = document.getElementById('formMessage').value.trim();
+
+                if (name && email && message) {
+                    formStatus.innerHTML = '✅ Thank you for your message! I will get back to you soon.';
+                    formStatus.className = 'form-message success';
+                    contactForm.reset();
+                    setTimeout(() => { formStatus.style.display = 'none'; formStatus.className = 'form-message'; }, 5000);
+                } else {
+                    formStatus.innerHTML = '❌ Please fill all required fields.';
+                    formStatus.className = 'form-message error';
+                    setTimeout(() => { formStatus.style.display = 'none'; formStatus.className = 'form-message'; }, 3000);
+                }
+            });
+        }
+
+        window.addEventListener('resize', () => { if (window.innerWidth > 768) closeSidebar(); });
+    </script>
+</body>
+</html>

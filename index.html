@@ -321,39 +321,53 @@
             line-height: 1.7;
         }
 
+        /* ===== SKILLS & TOOLS: MINIMALIST DESIGN ===== */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
-            gap: 18px;
-            margin-top: 15px;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            column-gap: 30px;
+            row-gap: 22px;
+            margin-top: 20px;
         }
 
         .skill-card {
-            background: var(--bg-card);
-            padding: 14px 18px;
-            border-radius: 10px;
             display: flex;
             align-items: center;
             gap: 14px;
-            transition: 0.3s;
-            border: 1px solid var(--card-border);
+            padding: 5px 0;
+            background: transparent;
+            border: none;
+            border-radius: 0;
+            box-shadow: none;
+            transition: color 0.25s ease;
         }
 
             .skill-card:hover {
-                border-color: var(--accent-color);
-                transform: translateX(5px);
+                background: transparent;
+                border: none;
+                box-shadow: none;
+                transform: none;
             }
 
             .skill-card i {
-                font-size: 20px;
+                font-size: 19px;
                 color: var(--accent-color);
-                width: 30px;
+                width: 24px;
+                flex-shrink: 0;
+                text-align: center;
             }
 
             .skill-card span {
                 color: var(--text-primary);
                 font-size: 15px;
                 font-weight: 500;
+                line-height: 1.5;
+                background: transparent;
+                padding: 0;
+            }
+
+            .skill-card:hover span {
+                color: var(--accent-color);
             }
 
         /* RESEARCH PAGE */
@@ -623,7 +637,7 @@
 
 
 
-        
+
 
             .contact-header h2 {
                 font-size: 36px;
@@ -897,6 +911,18 @@
             .education-header h2 {
                 font-size: 28px;
             }
+
+            .skills-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .skills-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
         }
     </style>
 </head>
@@ -912,12 +938,16 @@
                 <img src="images/profile_picture.jpeg">
             </div>
             <div class="name">Shova Paudel</div>
+            <div class="cv-btn">
+                <a href="assets/Shova_Poudel_CV.pdf" id="downloadCV" download>
+                    📄 Download CV
+                </a>
+            </div>
 
-            <div class="cv-btn"><a href="#" id="downloadCV">📄 Download CV</a></div>
             <div class="social-links">
-                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/shovapoudel59/"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://x.com/Shova_P/"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/shova_poudel_/"><i class="fab fa-instagram"></i></a>
             </div>
             <div class="theme-toggle">
                 <button class="theme-btn" id="themeToggle"><i class="fas fa-moon"></i> Dark/Light</button>
@@ -933,21 +963,50 @@
         </div>
 
         <div class="main-content">
+
             <!-- HOME PAGE -->
             <div id="home" class="page active">
-                <div class="hello-text">Hello, i'm</div>
-                <div class="hero-name">Shova Paudel</div>
-                <div class="welcome-text">Welcome to my personal website. Here, I share my experience, skills, and a collection of my projects and research work.</div>
-                <div class="forestry-badge">🌿 Forestry Graduate</div>
+
+                <div class="hello-text">Hello, I'm</div>
+
+                <div class="hero-name">Shova Paudel <span class="pronouns">(she/her)</span></div>
+
+                <div class="welcome-text">
+                    Welcome to my website. Here, I share my experience, skills,
+                    and a collection of my projects and research work.
+                </div>
+
 
                 <div class="section-title">About Me</div>
-                <div class="info-box">I am Shova Paudel, recently graduate from the IOF, Hetauda with honors in 2026. My hobbies include reading books, watching TV series, drawing, trekking, travelling etc.</div>
 
-                <div class="section-title">Research Interest</div>
-                <div class="info-box">I am interested in ecology, forest management, wildlife conservation etc. I enjoy learning how nature works and finding ways to protect it. Recently, I developed a strong enthusiasm for academic research and have been dedicatedly focusing on it. My studies primarily focus on utilization of geospatial tools and machine learning to understand different phenomenon around us.</div>
+                <div class="info-box">
+                    I am Shova Paudel, a graduate in Forestry with honors in 2025.
+                    My hobbies include reading books, painting, travelling, and exploring new places.
+
+                    <br><br>
+
+                    Recently, I developed a strong enthusiasm for academic research and have
+                    been dedicatedly working on it. My research interests include habitat
+                    suitability modeling using various models, GIS & Remote Sensing,
+                    biodiversity conservation, and rangeland ecosystems.
+
+                    <br><br>
+
+                    My undergraduate research focused specifically on modeling the current
+                    and future habitat suitability of <em>Parthenium hysterophorus</em>
+                    in Nepal under different climate scenarios. This helped me gain
+                    experience in spatial data analysis, modeling, GIS, and statistical
+                    approaches.
+
+                    <br><br>
+
+                    If you love what I've been doing or wanna work together, please let me know!
+                </div>
+
 
                 <div class="section-title">Skills & Tools</div>
-                <div class="technical-skills-desc">Expertise in geospatial analysis, data science, and office productivity tools</div>
+
+
 
                 <div class="skills-grid">
                     <div class="skill-card"><i class="fas fa-map"></i><span>ArcGIS</span></div>
@@ -960,7 +1019,9 @@
                     <div class="skill-card"><i class="fas fa-satellite-dish"></i><span>GPS Technology</span></div>
                     <div class="skill-card"><i class="fas fa-chart-bar"></i><span>Data Analysis</span></div>
                 </div>
+
             </div>
+
 
             <!-- RESUME PAGE -->
             <div id="resume" class="page">
@@ -971,14 +1032,14 @@
                         <div class="timeline-title">Bachelor of Science in Forestry</div>
                         <div class="timeline-subtitle">Tribhuvan University, Institute of Forestry (TU-IOF)</div>
                         <div class="timeline-location"><i class="fas fa-map-marker-alt"></i> Hetauda, Nepal</div>
-                        <div class="timeline-description">Major Courses:<ul class="courses-list"><li>Forest Ecology</li><li>Silviculture</li><li>Wildlife Management</li><li>GIS Applications in Forestry</li><li>Watershed Management</li><li>Sustainable Resource Management</li></ul></div>
+                        <div class="timeline-description">Major Courses:<ul class="courses-list"><li>Forest Ecology</li><li>Silviculture</li><li>Wildlife Management</li><li>GIS Applications in Forestry</li><li>Watershed Management</li><li>Sustainable Resource Management</li><li>Rangeland Management</li></ul></div>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-year">2021 – 2023</div>
                         <div class="timeline-title">Higher Secondary (+2)</div>
                         <div class="timeline-subtitle">Aroma College of Applied Science and Management</div>
                         <div class="timeline-location"><i class="fas fa-map-marker-alt"></i> Bharatpur-10, Chitwan, Nepal</div>
-                        <div class="timeline-description">Specialized in Science (Biology, Chemistry, Physics and Environmental Studies).</div>
+                        <div class="timeline-description">Specialized in Science (Biology, Chemistry, Physics).</div>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-year">2021</div>
@@ -999,15 +1060,15 @@
             <!-- RESEARCH PAGE -->
             <div id="research" class="page">
                 <div class="research-intro">
-                    <p style="margin-bottom: 12px;">In my undergraduate thesis, I studied the spread of <strong>Parthenium hysterophorus</strong> in Nepal using modeling techniques under present and future climate conditions.</p>
-                    <p>In the future, I intend to deepen my research in climate change impacts, ecological modeling, and conservation planning.</p>
+                    <p style="margin-bottom: 12px;">In my undergraduate thesis, I studied the spread of <emstrong><em>Parthenium hysterophorus</em></strong> in Nepal using ensemble modeling under present and future climate conditions.</p>
+                    <p>In the future, I intend to deepen my research in the field of forestry.</p>
                 </div>
 
                 <div class="research-paper">
                     <div class="paper-year">📄 2025</div>
                     <div class="paper-title">Habitat Suitability Modeling of <em>Parthenium hysterophorus L.</em> under Current and Future Climatic Scenarios in Nepal</div>
                     <div class="paper-author">Paudel, S.</div>
-                    <div class="paper-journal">Undergraduate Thesis / Pre-print</div>
+                    <div class="paper-journal">Undergraduate Thesis </div>
 
                     <div class="paper-links">
                         <div class="paper-link" id="abstractBtn"><i class="fas fa-scroll"></i> Abstract</div>
@@ -1157,7 +1218,6 @@
         // Research Links
         document.getElementById('fulltextBtn')?.addEventListener('click', () => alert('Full text will be available soon. Please contact me for access.'));
         document.getElementById('codeBtn')?.addEventListener('click', () => alert('Code repository will be shared upon request.'));
-        document.getElementById('downloadCV')?.addEventListener('click', (e) => { e.preventDefault(); alert('CV will be available for download soon!'); });
 
         // Contact Form Handler
         const contactForm = document.getElementById('contactForm');

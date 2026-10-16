@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results & Discussions | Shova Paudel</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Link to external CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+   <!-- Lightbox Overlay with < and > Arrows -->
+<div id="lightbox">
+    <span class="close-lightbox" onclick="closeLightbox()">&times;</span>
+    
+    <!-- Prev Arrow (<) -->
+    <button type="button" class="lightbox-arrow prev-btn" id="lightbox-prev" aria-label="Previous image">
+        <i class="fas fa-chevron-left"></i>
+    </button>
+
+    <div class="lightbox-content" onclick="event.stopPropagation()">
+        <img id="lightbox-img" src="" alt="Enlarged view">
+        <div id="lightbox-caption"></div>
+    </div>
+
+    <!-- Next Arrow (>) -->
+    <button type="button" class="lightbox-arrow next-btn" id="lightbox-next" aria-label="Next image">
+        <i class="fas fa-chevron-right"></i>
+    </button>
+</div>
+
+    <div class="layout-container">
+
+        <!-- LEFT COLUMN: Sticky Navigation & Context -->
+        <header class="header-col">
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i> Back to Home
+            </a>
+
+            <h1>RESULTS & DISCUSSIONS</h1>
+
+            <div class="tagline">
+                Habitat Suitability Modeling of
+                <i>Parthenium hysterophorus</i> L. Under Current
+                and Future Climatic Scenarios in Nepal
+            </div>
+
+            <div class="nav-section-title">SECTIONS</div>
+
+            <li>
+                    <a href="#abstract" class="nav-link">
+                        <span class="nav-indicator"></span>
+                        <span class="nav-text">Abstract</span>
+                    </a>
+            </li>
+
+            <nav>
+                <ul class="nav-menu">
+                    <li>
+                        <a href="#study-area" class="nav-link active">
+                            <span class="nav-indicator"></span>
+                            <span class="nav-text">Study Area</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#current" class="nav-link">
+                            <span class="nav-indicator"></span>
+                            <span class="nav-text">Current Distribution</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#future" class="nav-link">
+                            <span class="nav-indicator"></span>
+                            <span class="nav-text">Future Projections</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#conclusion" class="nav-link">
+                            <span class="nav-indicator"></span>
+                            <span class="nav-text">Conclusion</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- RIGHT COLUMN: Scrollable Content -->
+        <main class="content-col">
+
+
+
+<!-- SECTION 1: Study Area -->
+            <section id="abstract">
+
+                <h2 class="section-title">
+                    Abstract
+                </h2>
+
+                <div class="academic-text">
+
+                   <p>Invasive alien species are among the major drivers of biodiversity decline, alongside land-use change and pollution. They pose a significant threat to biodiversity, particularly under changing climatic conditions. This study examines the distribution patterns of <em>Parthenium hysterophorus L.</em> in Nepal under current and future climate scenarios using ensemble species distribution modeling.</p>
+                                            
+                    <p>Species occurrence data were obtained from the Global Biodiversity Information Facility (GBIF), while 19 bioclimatic variables and two topographical variables were downloaded from WorldClim. Binary logistic regression was performed using five machine learning models and two statistical models, all meeting performance thresholds of area under the curve (AUC) > 0.85 and true skill statistic (TSS) > 0.6. Model outputs were ensembled using a weighted average approach based on TSS to generate final suitability maps. Among the predictors, mean diurnal range was the most influential, followed by the minimum temperature of the coldest month and precipitation of the coldest month.</p>
+                                            
+                    <p>Under current climatic conditions, <em>P. hysterophorus</em> occupies 22.54% of Nepal’s total area. The highest suitability is observed in the Terai (81.15%), followed by the Siwalik (50.23%), Middle Mountain (16.75%), and High Mountain (1.15%) regions, while no suitable area is found in the High Himalaya. A notable shift of species toward northern regions is projected in the future. To conclude, climate change is likely to exacerbate the invasion of <em>P. hysterophorus</em> in Nepal. The invasion shift towards the northern region can pose a significant threat to abandoned agricultural lands in the Middle Mountains. Continuous monitoring and management efforts are therefore essential to prevent its further spread into new habitats.</p>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SECTION 1: Study Area -->
+            <section id="study-area">
+
+                <h2 class="section-title">
+                    Study Area
+                </h2>
+
+                <div class="academic-text">
+
+                    <p>
+                        The study was carried out in Nepal. Nepal is a
+                        landlocked country that is surrounded by India
+                        to the south, east and west and China to the
+                        North which covers the area of 1,47,516 sq.km.
+                    </p>
+
+                    <p>
+                        Nepal is categorized into 5 physiographic regions
+                        which include High Himalaya (above 5,000 m,
+                        nival bioclimate), High Mountains (3,000,5000 m,
+                        alpine bioclimate), Middle Mountains
+                        (1,000–3,000 m, subtropical and temperate
+                        bioclimate), Siwalik (500–1,000 m, North to south:
+                        tropical bioclimate, Lowland Tarai (below 500m,
+                        tropical bioclimate) from north to south.
+                    </p>
+
+                </div>
+
+                <div class="figure-frame">
+                    <img
+                        src="images/occ_points_physiography_and_provinces.jpg"
+                        alt="Map of the study area in Nepal showing ecological zones"
+                    >
+
+                    <div class="figure-caption">
+                        Occurrence points of Parthenium in five study physiographic regions of Nepal.
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- SECTION 2: Current Distribution -->
+            <section id="current">
+
+                <h2 class="section-title">
+                    Current Geographic Distribution
+                </h2>
+
+                <div class="academic-text">
+
+                    <p>
+                        Under current climatic conditions,
+                        <i>Parthenium hysterophorus</i> is modeled to
+                        occupy 33,247.11 sq.km, representing roughly
+                        22.54% of Nepal’s total land area. The species
+                        currently heavily favors the warmer, lowland
+                        regions of the country, with habitat suitability
+                        rapidly decreasing at higher elevations.
+                    </p>
+
+                    <div class="takeaway-box">
+                        <strong>Physiographic Breakdown</strong>
+
+                        The Terai region is the most vulnerable,
+                        with 81.15% of its area highly suitable for
+                        the weed. This is followed by the Siwalik
+                        (50.23%) and the Middle Mountains (16.78%).
+                        The High Himalaya region currently shows
+                        zero suitability.
+                    </div>
+
+                </div>
+
+                <!-- Current Distribution Map - Enlarged -->
+                <div class="map-gallery"
+                     style="margin-top: 2rem; grid-template-columns: 1fr;">
+
+                    <div class="figure-frame" style="margin-top: 0;">
+
+                        <img
+                            src="images/binary_raster_current.jpg"
+                            alt="Current Suitability Map"
+                        >
+
+                        <div class="figure-caption">
+                            Current suitability of Parthenium in Nepal
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- SECTION 3: Future Projections -->
+            <section id="future">
+
+                <h2 class="section-title">
+                    Future Projections (2040-2100)
+                </h2>
+
+                <div class="academic-text">
+                    <p>
+                        Climate change acts as a primary catalyst for
+                        the expansion of this invasive species.
+                        Under both moderate and extreme high-emission
+                        scenarios, the highly suitable habitat is
+                        projected to expand significantly,
+                        demonstrating a clear northward shift into
+                        higher elevations over the coming decades.
+                    </p>
+                </div>
+
+                <!-- Moderate Scenario Maps -->
+                <div class="scenario-block">
+
+                    <h3 class="scenario-heading">
+                        Moderate Emision Scenario (SSP245)
+                    </h3>
+
+                    <div class="map-gallery">
+
+                        <div class="figure-frame" style="margin-top: 0;">
+                            <img
+                                src="images/Map_SSP245_2050.jpg"
+                                alt="2050 Moderate"
+                            >
+
+                            <div class="figure-caption">
+                                Habitat suitability of Parthenium in 2040-2060 under moderate emission scenario <strong>[SSP245-2050]</strong> (25.6% Net Gain)
+                            </div>
+                        </div>
+
+                        <div class="figure-frame" style="margin-top: 0;">
+                            <img
+                                src="images/Map_SSP245_2070.jpg"
+                                alt="2070 Moderate"
+                            >
+
+                            <div class="figure-caption">
+                               Habitat suitability of Parthenium in 2060-2080 under moderate emission scenario <strong>[SSP245-2070]</strong>  (33.7% Net Gain)
+                            </div>
+                        </div>
+
+                        <div class="figure-frame" style="margin-top: 0;">
+                            <img
+                                src="images/Map_SSP245_2090.jpg"
+                                alt="2090 Moderate"
+                            >
+
+                            <div class="figure-caption">
+                              Habitat suitability of Parthenium in 2080-2100 under moderate emission scenario <strong>[SSP245-2090]</strong> (65.0% Net Gain)
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Extreme Scenario Maps -->
+                <div class="scenario-block">
+
+                    <h3 class="scenario-heading">
+                        Extreme Emission Scenario (SSP585)
+                    </h3>
+
+                    <div class="map-gallery">
+
+                        <div class="figure-frame" style="margin-top: 0;">
+                            <img
+                                src="images/Map_SSP585_2050.jpg"
+                                alt="2050 Extreme"
+                            >
+
+                            <div class="figure-caption">
+                                Habitat suitability of Parthenium in 2040-2060 under high emission scenario <strong>[SSP585-2050]</strong>  (26.6% Net Gain)
+                            </div>
+                        </div>
+
+                        <div class="figure-frame" style="margin-top: 0;">
+                            <img
+                                src="images/Map_SSP585_2070.jpg"
+                                alt="2070 Extreme"
+                            >
+
+                            <div class="figure-caption">
+                                Habitat suitability of Parthenium in 2060-2080 under high emission scenario <strong>[SSP585-2070]</strong> (52.1% Net Gain)
+                            </div>
+                        </div>
+
+                        <div class="figure-frame" style="margin-top: 0;">
+                            <img
+                                src="images/Map_SSP585_2090.jpg"
+                                alt="2090 Extreme"
+                            >
+
+                            <div class="figure-caption">
+                               Habitat suitability of Parthenium in 2080-2100 under high emission scenario <strong>[SSP585-2090]</strong> (87.7% Net Gain)
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- SECTION 4: Conclusion -->
+            <section id="conclusion">
+
+                <h2 class="section-title">
+                    Conclusion & Management
+                </h2>
+
+                <div class="academic-text">
+
+                    <p>
+                        Overall, the future climate change will likely
+                        to create additional suitable areas for the
+                        species causing negative impacts on the
+                        livelihoods, biodiversity and economy of Nepal.
+                    </p>
+
+                    <p>
+                        The negative effects caused by invasive species
+                        can be effectively reduced by identifying them
+                        in our environment and implementing efficient
+                        control techniques. Some of the integrated
+                        management approaches such as mechanical removal,
+                        biological control, and safe herbicide use should
+                        be applied to reduce the spread of this species.
+                    </p>
+
+                </div>
+
+            </section>
+
+            <footer class="footer">
+                <div class="copyright" style="line-height: 1.8;">
+
+                    © 2026 Shova Paudel. This work is licensed under
+
+                    <a
+                        href="https://creativecommons.org/licenses/by-nc-nd/4.0/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style="white-space: nowrap;"
+                    >
+                        CC BY-NC-ND 4.0
+                    </a>
+
+                    <span style="
+                        font-size: 1.1rem;
+                        display: inline-flex;
+                        align-items: center;
+                        gap: 4px;
+                        margin-left: 4px;
+                        vertical-align: middle;
+                        text-decoration: none;
+                    ">
+                        <i class="fab fa-creative-commons"></i>
+                        <i class="fab fa-creative-commons-by"></i>
+                        <i class="fab fa-creative-commons-nc"></i>
+                        <i class="fab fa-creative-commons-nd"></i>
+                    </span>
+
+                </div>
+            </footer>
+
+        </main>
+    </div>
+
+    <!-- Link to external JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>

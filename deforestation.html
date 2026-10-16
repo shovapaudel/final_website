@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deforestation Modeling | Shova Paudel</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+       
+        /* Centered Reading Layout */
+        .page-container {
+            max-width: 850px; /* Perfect width for reading */
+            margin: 0 auto;
+            padding: 4rem 24px;
+        }
+
+       
+        
+    </style>
+</head>
+<body>
+
+    <!-- Lightbox Overlay (Hidden by default) -->
+    <div id="lightbox" onclick="closeLightbox()">
+        <span class="close-lightbox">&times;</span>
+        <img id="lightbox-img" src="" alt="Enlarged map view">
+    </div>
+
+    <div class="page-container">
+        
+        <a href="index.html" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Back to Home
+        </a>
+
+        <h1 class="page-title">Deforestation Modeling</h1>
+
+        <div class="article-content">
+            <p>
+                Deforestation poses a significant threat to biodiversity. Forests, as vast ecosystems, support a wide variety of flora and fauna, and their destruction leads to the loss of these species.
+            </p>
+
+            <p>
+                Given the importance of forests, it is essential to study deforestation in Nepal. Despite an overall increase in forest cover, understanding deforestation patterns and identifying regions prone to deforestation are crucial for effective forest and land use management.
+            </p>
+
+            <p>
+                To address this, I performed a study modeling deforestation in two districts of Nepal: Dang and Kapilvastu. We used Land Use Land Cover maps from 2013 and 2023 to identify deforested regions. Our model incorporated six predictor variables: land use, elevation, population density, and proximity to agricultural land, settlements, roads, and water bodies. We utilized the 'randomForest' package in RStudio for model building.
+            </p>
+
+            <p>
+                This study is an initial phase of a larger project aimed at modeling deforestation across Nepal. As we refine our methods, we plan to expand our analysis nationwide, which will require time and continuous learning to achieve accurate results.
+            </p>
+
+            <p>
+                This study primarily focuses on developing a deforestation susceptibility map in the study area. Below is the image obtained by performing the modeling, where the red colored pixels represent the regions prone to deforestation.
+            </p>
+        </div>
+
+        <!-- Image Section -->
+        <div class="figure-frame">
+            <!-- Replace "photos/your-map-image.jpg" with your actual image file name -->
+            <img src="images/possible_deforestation_fuzzy_dark.jpg" alt="Deforestation Susceptibility Map">
+            <div class="figure-caption">
+                Deforestation susceptibility map of Dang and Kapilvastu districts. Red pixels indicate regions highly prone to deforestation.
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="copyright" style="line-height: 1.8;">
+                © 2026 Shova Paudel. This work is licensed under 
+                <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener noreferrer" style="white-space: nowrap; text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: 4px;">
+                    CC BY-NC-ND 4.0 
+                </a>
+                <span style="font-size: 1.1rem; display: inline-flex; align-items: center; gap: 4px; margin-left: 4px; vertical-align: middle;">
+                    <i class="fab fa-creative-commons"></i>
+                    <i class="fab fa-creative-commons-by"></i>
+                    <i class="fab fa-creative-commons-nc"></i>
+                    <i class="fab fa-creative-commons-nd"></i>
+                </span>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Script for the click-to-zoom image feature -->
+    <script>
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const mapImage = document.querySelector('.figure-frame img');
+
+        if (mapImage) {
+            mapImage.addEventListener('click', function(e) {
+                e.stopPropagation();
+                lightboxImg.src = this.src;
+                lightbox.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            });
+        }
+
+        function closeLightbox() {
+            lightbox.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        lightboxImg.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === "Escape" && lightbox.style.display === "flex") {
+                closeLightbox();
+            }
+        });
+    </script>
+
+</body>
+</html>
